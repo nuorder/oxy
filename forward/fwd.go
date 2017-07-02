@@ -241,7 +241,7 @@ func (f *httpForwarder) copyRequest(req *http.Request, u *url.URL) *http.Request
 	outReq.ProtoMinor = 1
 
 	// Overwrite close flag so we can keep persistent connection for the backend servers
-	outReq.Close = false
+	outReq.Close = true
 
 	outReq.Header = make(http.Header)
 	utils.CopyHeaders(outReq.Header, req.Header)
